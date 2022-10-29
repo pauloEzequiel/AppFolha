@@ -1,0 +1,5 @@
+package br.edu.infnet.app.folha.controller;
+
+public class HomeController {
+
+}
