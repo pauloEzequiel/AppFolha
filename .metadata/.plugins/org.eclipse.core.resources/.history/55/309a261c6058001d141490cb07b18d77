@@ -1,0 +1,16 @@
+package br.edu.infnet.appfolha.entidades;
+
+import java.io.Serializable;
+
+public abstract class FolhaPagamento implements Serializable {
+	private static final long serialVersionUID = 1L; 
+	
+	private Integer id;
+	private Integer mes;
+	private Integer ano;
+	private Double totalValor;
+	private 
+	
+	
+	
+}

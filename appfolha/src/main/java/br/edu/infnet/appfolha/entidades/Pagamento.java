@@ -1,4 +1,5 @@
 package br.edu.infnet.appfolha.entidades;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,20 +19,29 @@ public class Pagamento implements Serializable {
 	private Integer idPagamento;
 	private Integer mes;
 	private Integer ano;
-	private Integer valor;
+	private String descricao;
+	
+	@Column(precision=10, scale=2)
+	private Double valor;
 	
 	@ManyToOne
 	@JoinColumn(name="funcionario_id")
 	private Funcionario funcionario;
 	
+	@ManyToOne
+	@JoinColumn(name="folha_pagamento_id")
+	private FolhaPagamento folhaPagamento;
+	
 	public Pagamento() {}
-	public Pagamento(Integer idPagamento, Integer mes, Integer ano, Integer valor, Funcionario funcionario) {
+	public Pagamento(Integer idPagamento, Integer mes, Integer ano,Double valor, Funcionario funcionario, FolhaPagamento folhaPagamento) {
 		super();
 		this.idPagamento = idPagamento;
 		this.mes = mes;
 		this.ano = ano;
+		this.descricao = folhaPagamento.getDescricao();
 		this.valor = valor;
 		this.funcionario = funcionario;
+		this.folhaPagamento= folhaPagamento;
 	}
 	
 	public Integer getIdPagamento() {
@@ -52,10 +62,10 @@ public class Pagamento implements Serializable {
 	public void setAno(Integer ano) {
 		this.ano = ano;
 	}
-	public Integer getValor() {
+	public Double getValor() {
 		return valor;
 	}
-	public void setValor(Integer valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 	public Funcionario getFuncionario() {
@@ -64,10 +74,22 @@ public class Pagamento implements Serializable {
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
-	
+	public FolhaPagamento getFolhaPagamento() {
+		return folhaPagamento;
+	}
+	public void setFolhaPagamento(FolhaPagamento folhaPagamento) {
+		this.folhaPagamento = folhaPagamento;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(idPagamento);
+	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 	@Override
 	public boolean equals(Object obj) {

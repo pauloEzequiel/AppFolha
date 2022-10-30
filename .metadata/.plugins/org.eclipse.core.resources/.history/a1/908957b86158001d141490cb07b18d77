@@ -1,0 +1,31 @@
+package br.edu.infnet.appfolha.entidades;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class FolhaPagamento implements Serializable {
+	private static final long serialVersionUID = 1L; 
+	
+	private Integer id;
+	private Integer mes;
+	private Integer ano;
+	private Double totalValor;
+	private List<Pagamento> pagamentos = new ArrayList<>();
+	
+	public FolhaPagamento() {}
+	
+	public FolhaPagamento(Integer id, Integer mes, Integer ano, Double totalValor, List<Pagamento> pagamentos) {
+		super();
+		this.id = id;
+		this.mes = mes;
+		this.ano = ano;
+		this.totalValor = totalValor;
+		this.pagamentos = pagamentos;
+	}
+	
+	
+	
+	
+	
+}

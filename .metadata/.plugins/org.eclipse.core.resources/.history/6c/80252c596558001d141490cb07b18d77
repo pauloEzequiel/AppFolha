@@ -1,0 +1,17 @@
+package br.edu.infnet.appfolha.entidades;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Devolucao extends FolhaPagamento {
+	private static final long serialVersionUID = 1L;
+	
+	public Devolucao() {}
+	public Devolucao(Integer id, Integer mes, Integer ano, Double totalValor, List<Pagamento> pagamentos) {
+		super(id, mes, ano,totalValor, pagamentos);
+	}
+	
+	
+}

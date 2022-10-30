@@ -1,0 +1,5 @@
+package br.edu.infnet.appfolha.entidades;
+
+public class Devolucao {
+	
+}

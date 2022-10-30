@@ -22,7 +22,7 @@ public class Funcionario implements Serializable {
 	private Integer id;
 	private String nome;
 	private String ocupacao;
-	private String departamento;
+	private String endereco;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="funcionario")
@@ -30,12 +30,12 @@ public class Funcionario implements Serializable {
 	
 	public  Funcionario() {}
 	
-	public Funcionario(Integer id, String nome, String ocupacao, String departamento, List<Pagamento> pagamentos) {
+	public Funcionario(Integer id, String nome, String ocupacao, String endereco, List<Pagamento> pagamentos) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.ocupacao = ocupacao;
-		this.departamento = departamento;
+		this.endereco = endereco;
 		this.pagamentos = pagamentos;
 	}
 	public Integer getId() {
@@ -56,12 +56,7 @@ public class Funcionario implements Serializable {
 	public void setOcupacao(String ocupacao) {
 		this.ocupacao = ocupacao;
 	}
-	public String getDepartamento() {
-		return departamento;
-	}
-	public void setDepartamento(String departamento) {
-		this.departamento = departamento;
-	}
+	
 	public List<Pagamento> getPagamentos() {
 		return pagamentos;
 	}
@@ -92,8 +87,8 @@ public class Funcionario implements Serializable {
 		builder.append(nome);
 		builder.append(", ocupacao=");
 		builder.append(ocupacao);
-		builder.append(", departamento=");
-		builder.append(departamento);
+		builder.append(", endereco=");
+		builder.append(endereco);
 		builder.append("]");
 		return builder.toString();
 	}

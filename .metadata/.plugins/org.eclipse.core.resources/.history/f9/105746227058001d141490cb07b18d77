@@ -1,0 +1,22 @@
+package br.edu.infnet.appfolha.services;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.edu.infnet.appfolha.entidades.Funcionario;
+import br.edu.infnet.appfolha.entidades.Pagamento;
+import br.edu.infnet.appfolha.repositories.FuncionarioRepository;
+
+public class DBService {
+
+	@Autowired
+	private FuncionarioRepository funcRep;
+	
+	public void instantiateTestDatabase() throws ParseException {
+		
+		Funcionario  func1 = new Funcionario(1,"Paulo","Analista","ARACAJU-SE",new ArrayList<Pagamento>());
+		funcRep.save(func1);
+	}
+}
