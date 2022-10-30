@@ -1,0 +1,31 @@
+package br.edu.infnet.appfolha.config;
+
+import java.text.ParseException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Description;
+import org.springframework.context.support.ResourceBundleMessageSource;
+
+import br.edu.infnet.appfolha.services.DBService;
+
+@Configuration
+public class TestConfig {
+
+	@Autowired
+	private DBService dbService;
+	
+	@Bean
+	public boolean instantiateDatabase() throws ParseException {
+		dbService.instantiateTestDatabase();
+		return true;
+	}
+	@Bean
+	@Description("Spring Message Resolver")
+	public ResourceBundleMessageSource messageSource() {
+	    ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+	    messageSource.setBasename("messages");
+	    return messageSource;
+	}
+}

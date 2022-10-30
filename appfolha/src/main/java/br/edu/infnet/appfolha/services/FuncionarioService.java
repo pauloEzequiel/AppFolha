@@ -1,5 +1,6 @@
 package br.edu.infnet.appfolha.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,10 @@ public class FuncionarioService {
 		Optional<Funcionario>funcionario = repositorio.findById(id);
 		
 		return funcionario.orElse(null);
+	}
+	
+	public List<Funcionario> ObterTodos() {
+		return repositorio.findAll();
 	}
 	
 }
