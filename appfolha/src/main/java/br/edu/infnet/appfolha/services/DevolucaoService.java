@@ -24,4 +24,14 @@ public class DevolucaoService {
 		return repositorio.findAll();
 	}
 	
+	public void adicionar(Devolucao devolucao) {
+		repositorio.save(devolucao);
+	}
+	
+	
+	public void remover (Integer id) {
+		
+		repositorio.deleteById(id);
+	}
+	
 }

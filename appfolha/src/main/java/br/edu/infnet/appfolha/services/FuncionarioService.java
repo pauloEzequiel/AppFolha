@@ -25,4 +25,13 @@ public class FuncionarioService {
 		return repositorio.findAll();
 	}
 	
+	public void adicionar(Funcionario funcionario) {
+		repositorio.save(funcionario);
+	}
+	
+	public void remover (Integer id) {
+		
+		repositorio.deleteById(id);
+	}
+	
 }

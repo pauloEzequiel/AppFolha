@@ -19,8 +19,9 @@
 	        <th>Ano</th>
 	        <th>Descrição</th>
 	        <th>Tipo</th>
-	        <th>Total Folha</th>
-	        <th></th>
+	        <th>Qtd Pagamento</th>
+	        <th>Valor Folha</th>
+	        <th>Ações</th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -30,8 +31,9 @@
 		        <td>${p.ano}</td>
 		        <td>${p.descricao}</td>
 		        <td>${p.getTipo()}</td>
+		        <td>${p.obterQtdPagamentos()}</td>
 		        <td>${p.getTotalValor()}</td>
-		        <td><a href="/folhapagamento/${p.id}/excluir">excluir</a></td>
+		        <td><a href="/folhaPagamento/${p.id}/excluir">Visualizar</a> <a href="/folhaPagamento/${p.id}/excluir">Excluir</a></td>
 		      </tr>
 	      </c:forEach>
 	    </tbody>

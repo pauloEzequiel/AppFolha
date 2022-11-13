@@ -10,7 +10,7 @@
 <body>
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container mt-3">
-	  <h3>Folha Pagamento: Benefícios</h3>
+	  <h3>Benefícios</h3>
 
 	  <table class="table table-striped">
 	    <thead>
@@ -18,8 +18,9 @@
 	        <th>Mes</th>
 	        <th>Ano</th>
 	        <th>Descrição</th>
-	        <th>Valor</th>
-	        <th></th>
+	        <th>Qtd Pagamento</th>
+	        <th>Valor Folha</th>
+	        <th>Ações</th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -28,8 +29,9 @@
 				<td>${p.mes}</td>
 		        <td>${p.ano}</td>
 		        <td>${p.descricao}</td>
+		        <td>${p.obterQtdPagamentos()}</td>
 		        <td>${p.getTotalValor()}</td>
-		        <td><a href="/salario/${p.id}/excluir">excluir</a></td>
+		        <td><a href="/beneficio/${p.id}/visualizar">Visualizar</a>  <a href="/beneficio/${p.id}/excluir">Excluir</a></td>
 		      </tr>
 	      </c:forEach>
 	    </tbody>

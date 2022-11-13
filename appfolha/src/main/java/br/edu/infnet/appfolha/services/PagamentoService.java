@@ -25,4 +25,8 @@ public class PagamentoService {
 		return repositorio.findAll();
 	}
 	
+    public void remover (Integer id) {
+		repositorio.deleteById(id);
+	}
+	
 }

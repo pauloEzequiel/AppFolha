@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -32,7 +33,7 @@ public abstract class FolhaPagamento implements Serializable {
 	@Column(precision=10, scale=2)
 	private Double totalValor;
 	
-	@OneToMany(mappedBy="folhaPagamento")
+	@OneToMany(mappedBy="folhaPagamento", cascade = CascadeType.REMOVE)
 	private List<Pagamento> pagamentos = new ArrayList<>();
 	
 	@Column(insertable=false, updatable=false)
@@ -87,6 +88,10 @@ public abstract class FolhaPagamento implements Serializable {
 		totalValor = pagamentos.stream().mapToDouble(p -> p.getValor()).sum();
 		
 		return totalValor;
+	}
+	
+	public int obterQtdPagamentos() {
+		return pagamentos.size();
 	}
 	public String getDescricao() {
 		return descricao;

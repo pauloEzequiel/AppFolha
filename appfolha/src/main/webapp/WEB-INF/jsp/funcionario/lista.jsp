@@ -19,7 +19,7 @@
 	        <th>Ocupação</th>
 	        <th>Cidade</th>
 	        <th>Valor a receber</th>
-	        <th></th>
+	        <th>Ações</th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -29,7 +29,7 @@
 		        <td>${p.ocupacao}</td>
 		        <td>${p.endereco}</td>
 		         <td>0</td>
-		        <td><a href="/funcionario/${p.id}/excluir">excluir</a></td>
+		        <td><a href="/funcionario/${p.id}/excluir">Visualizar</a> <a href="/funcionario/${p.id}/excluir">Excluir</a></td>
 		      </tr>
 	      </c:forEach>
 	    </tbody>

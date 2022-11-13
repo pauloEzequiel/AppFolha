@@ -28,7 +28,7 @@
 		        <td>${p.ano}</td>
 		        <td>${p.descricao}</td>
 		        <td>${p.valor}</td>
-		        <td><a href="/pagamento/${p.idPagamento}/excluir">excluir</a></td>
+		        <td><a href="/pagamento/${p.idPagamento}/visualizar">Visualizar</a> <a href="/pagamento/${p.idPagamento}/excluir">Excluir</a></td>
 		      </tr>
 	      </c:forEach>
 	    </tbody>
