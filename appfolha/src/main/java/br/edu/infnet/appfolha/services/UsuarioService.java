@@ -1,42 +1,41 @@
 package br.edu.infnet.appfolha.services;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.infnet.appfolha.ExternalService.IEnderecoClient;
-import br.edu.infnet.appfolha.ExternalService.IUsuarioClient;
-import br.edu.infnet.appfolha.entidades.Endereco;
 import br.edu.infnet.appfolha.entidades.Usuario;
+import br.edu.infnet.appfolha.repositories.UsuarioRepository;
+
 
 @Service
 public class UsuarioService {
-
-	@Autowired
-	private IEnderecoClient enderecoClient;
 	
 	@Autowired
-	private IUsuarioClient usuarioClient;
+	private UsuarioRepository usuarioRepository;
 
 	public void incluir(Usuario usuario) {
-		usuarioClient.incluir(usuario);
+		usuarioRepository.save(usuario);
 	}
-	
-	public void excluir(Integer id) {
-		usuarioClient.excluir(id);
-	}
-	
-	public Collection<Usuario> obterLista(){
-		return usuarioClient.obterLista();
-	}
-	
-	public Usuario validar(String email, String senha) {
 
-		return usuarioClient.validar(email, senha);
+	public void excluir(Integer id) {
+		usuarioRepository.deleteById(id);
 	}
-	
-	public Endereco obterCep(String cep) {
-		return enderecoClient.obterCep(cep);
+
+	public List<Usuario> obterLista(){
+
+		return (List<Usuario>) usuarioRepository.findAll();
+	}
+
+	public Usuario validar(String email, String senha) {
+		
+		Usuario usuario = usuarioRepository.findByEmail(email);
+		
+		if(usuario != null && usuario.getSenha().equals(senha)) {
+			return usuario;
+		}
+		
+		return null;
 	}
 }

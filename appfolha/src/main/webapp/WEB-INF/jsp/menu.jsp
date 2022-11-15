@@ -12,6 +12,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="/">Home</a></li>
+       <c:if test="${not empty user}">
 	      <li class="nav-item">
 	        <a class="nav-link" href="/funcionario/lista">Funcionário</a>
 	      </li>
@@ -29,12 +30,16 @@
 						<li><a class="nav-link" href="/folhaPagamento/lista">Todas</a></li>
 					</ul>
 	      </li>
+	   </c:if>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/usuario"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>      
-	  <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      
-       <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+     <c:if test="${empty user}">
+      	<li><a href="/usuario"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>      
+	  	<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	 </c:if>
+     <c:if test="${not empty user}">
+       <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout ${user.nome}</a></li>
+     </c:if>
     </ul>
   </div>
 </nav>

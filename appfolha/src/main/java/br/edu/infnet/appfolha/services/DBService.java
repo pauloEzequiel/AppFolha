@@ -12,7 +12,6 @@ import br.edu.infnet.appfolha.entidades.Devolucao;
 import br.edu.infnet.appfolha.entidades.Funcionario;
 import br.edu.infnet.appfolha.entidades.Pagamento;
 import br.edu.infnet.appfolha.entidades.Salario;
-import br.edu.infnet.appfolha.entidades.Usuario;
 import br.edu.infnet.appfolha.repositories.BeneficioRepository;
 import br.edu.infnet.appfolha.repositories.DevolucaoRepository;
 import br.edu.infnet.appfolha.repositories.FuncionarioRepository;
@@ -41,17 +40,17 @@ public class DBService {
 	private UsuarioService userServ;
 	public void instantiateTestDatabase() throws ParseException {
 		
-		Usuario user = new Usuario();
-		user.setEmail("admin@admin.com");
-		user.setNome("Administrador");
-		user.setSenha("123");
+		//Usuario user = new Usuario();
+		//user.setEmail("admin@admin.com");
+		//user.setNome("Administrador");
+		//user.setSenha("123");
 		
 		//userServ.incluir(user);
 		
-		Funcionario  func1 = new Funcionario(null,"Paulo Ezequiel","999.999.999-99","Analista","ARACAJU-SE",new ArrayList<Pagamento>(),new Usuario());
-		Funcionario  func2 = new Funcionario(null,"José Tavares","999.999.999-99","Analista","ARACAJU-SE",new ArrayList<Pagamento>(),new Usuario());
-		Funcionario  func3 = new Funcionario(null,"Maria Lopes","999.999.999-99","Gerente","ARACAJU-SE",new ArrayList<Pagamento>(),new Usuario());
-		Funcionario  func4 = new Funcionario(null,"Sandy Duarte","999.999.999-99","Superintendente","ARACAJU-SE",new ArrayList<Pagamento>(),new Usuario());
+		Funcionario  func1 = new Funcionario(null,"Paulo Ezequiel","999.999.999-99","Analista","ARACAJU-SE",new ArrayList<Pagamento>());
+		Funcionario  func2 = new Funcionario(null,"José Tavares","999.999.999-99","Analista","ARACAJU-SE",new ArrayList<Pagamento>());
+		Funcionario  func3 = new Funcionario(null,"Maria Lopes","999.999.999-99","Gerente","ARACAJU-SE",new ArrayList<Pagamento>());
+		Funcionario  func4 = new Funcionario(null,"Sandy Duarte","999.999.999-99","Superintendente","ARACAJU-SE",new ArrayList<Pagamento>());
 		funcRep.saveAll((Arrays.asList(func1,func2,func3,func4)));
 		
 		

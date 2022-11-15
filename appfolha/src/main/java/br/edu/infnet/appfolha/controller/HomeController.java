@@ -14,11 +14,15 @@ import org.springframework.web.bind.support.SessionStatus;
 import br.edu.infnet.appfolha.entidades.Usuario;
 import br.edu.infnet.appfolha.services.UsuarioService;
 
+
+
 @SessionAttributes("user")
 @Controller
 public class HomeController {
-	@Autowired
-	private UsuarioService usuarioService;
+	
+	  @Autowired 
+	  private UsuarioService usuarioService;
+	 
 	
 	@GetMapping(value="/")
 	public String telaHome(Model model){
@@ -33,14 +37,15 @@ public class HomeController {
 	@PostMapping(value = "/login")
 	public String login(Model model, @RequestParam String email, @RequestParam String senha) {
 		
-		Usuario usuario = usuarioService.validar(email, senha);
 		
-		if(usuario != null) {
-			
-			model.addAttribute("user", usuario);
-			
-			return "home";
-		}
+		  Usuario usuario = usuarioService.validar(email, senha);
+		  
+		  if(usuario != null) {
+		  
+		  model.addAttribute("user", usuario);
+		  
+		  return "home"; }
+		 
 		
 		return "login";
 	}

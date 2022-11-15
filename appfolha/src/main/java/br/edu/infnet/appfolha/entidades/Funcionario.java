@@ -10,10 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -33,15 +31,14 @@ public class Funcionario implements Serializable {
 	@OneToMany(mappedBy="funcionario", cascade = CascadeType.REMOVE)
 	private List<Pagamento> pagamentos = new ArrayList<>();
 	
-	@ManyToOne
-	@JoinColumn(name="idUsuario")
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="funcionario")
 	private Usuario usuario;
-	
+
 	public  Funcionario() {}
 	
 
 	public Funcionario(Integer id, String nome, String cPF, String ocupacao, String endereco,
-			List<Pagamento> pagamentos, Usuario usuario) {
+			List<Pagamento> pagamentos) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -49,7 +46,7 @@ public class Funcionario implements Serializable {
 		this.ocupacao = ocupacao;
 		this.endereco = endereco;
 		this.pagamentos = pagamentos;
-		this.usuario = usuario;
+		this.usuario = new Usuario(null,nome,nome.replace(" ","_").toLowerCase()+"@folhapamento.com","123", this);
 	}
 
 
@@ -94,16 +91,6 @@ public class Funcionario implements Serializable {
 		this.pagamentos = pagamentos;
 	}
 	
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
