@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -32,8 +33,14 @@ public class Pagamento implements Serializable {
 	@JoinColumn(name="folha_pagamento_id")
 	private FolhaPagamento folhaPagamento;
 	
+	
 	public Pagamento() {}
-	public Pagamento(Integer idPagamento, Integer mes, Integer ano,Double valor, Funcionario funcionario, FolhaPagamento folhaPagamento) {
+	
+	
+
+
+	public Pagamento(Integer idPagamento, Integer mes, Integer ano, Double valor,
+			Funcionario funcionario, FolhaPagamento folhaPagamento) {
 		super();
 		this.idPagamento = idPagamento;
 		this.mes = mes;
@@ -41,9 +48,12 @@ public class Pagamento implements Serializable {
 		this.descricao = folhaPagamento.getDescricao();
 		this.valor = valor;
 		this.funcionario = funcionario;
-		this.folhaPagamento= folhaPagamento;
+		this.folhaPagamento = folhaPagamento;
 	}
-	
+
+
+
+
 	public Integer getIdPagamento() {
 		return idPagamento;
 	}
@@ -91,6 +101,8 @@ public class Pagamento implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

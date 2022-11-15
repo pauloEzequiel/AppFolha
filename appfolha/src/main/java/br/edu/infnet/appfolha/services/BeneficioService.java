@@ -21,6 +21,9 @@ public class BeneficioService {
 		return salario.orElse(null);
 	}
 	
+	public void adicionar(Beneficio beneficio) {
+		repositorio.save(beneficio);
+	}
 	public List<Beneficio> ObterTodos() {
 		return repositorio.findAll();
 	}

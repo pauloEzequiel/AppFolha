@@ -15,10 +15,14 @@ public class SalarioService {
 	@Autowired
 	private SalarioRepository repositorio;
 	
-	public Salario obterFuncionario(Integer id){
+	public Salario obterSalario(Integer id){
 		Optional<Salario>salario = repositorio.findById(id);
 		
 		return salario.orElse(null);
+	}
+	
+	public void adicionar(Salario salario) {
+		repositorio.save(salario);
 	}
 	
 	public List<Salario> ObterTodos() {

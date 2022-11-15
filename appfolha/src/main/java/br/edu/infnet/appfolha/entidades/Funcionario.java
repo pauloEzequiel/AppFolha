@@ -10,7 +10,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,6 +25,7 @@ public class Funcionario implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private String CPF;
 	private String ocupacao;
 	private String endereco;
 	
@@ -29,16 +33,26 @@ public class Funcionario implements Serializable {
 	@OneToMany(mappedBy="funcionario", cascade = CascadeType.REMOVE)
 	private List<Pagamento> pagamentos = new ArrayList<>();
 	
+	@ManyToOne
+	@JoinColumn(name="idUsuario")
+	private Usuario usuario;
+	
 	public  Funcionario() {}
 	
-	public Funcionario(Integer id, String nome, String ocupacao, String endereco, List<Pagamento> pagamentos) {
+
+	public Funcionario(Integer id, String nome, String cPF, String ocupacao, String endereco,
+			List<Pagamento> pagamentos, Usuario usuario) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		CPF = cPF;
 		this.ocupacao = ocupacao;
 		this.endereco = endereco;
 		this.pagamentos = pagamentos;
+		this.usuario = usuario;
 	}
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -50,6 +64,13 @@ public class Funcionario implements Serializable {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public String getCPF() {
+		return CPF;
+	}
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
 	}
 	public String getEndereco() {
 		return endereco;
@@ -72,6 +93,17 @@ public class Funcionario implements Serializable {
 	public void setPagamentos(List<Pagamento> pagamentos) {
 		this.pagamentos = pagamentos;
 	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

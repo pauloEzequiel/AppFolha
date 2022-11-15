@@ -10,7 +10,9 @@
 <body>
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container mt-3">
-	  <h3>Salários</h3>
+	  <h3>Folha Salário</h3>
+	  <hr>
+	  <h4 style="text-align: right;"><a href="/salario/cadastro">Nova Folha</a></h4>
 
 	  <table class="table table-striped">
 	    <thead>

@@ -33,7 +33,7 @@
 		        <td>${p.getTipo()}</td>
 		        <td>${p.obterQtdPagamentos()}</td>
 		        <td>${p.getTotalValor()}</td>
-		        <td><a href="/folhaPagamento/${p.id}/excluir">Visualizar</a> <a href="/folhaPagamento/${p.id}/excluir">Excluir</a></td>
+		        <td><a href="/folhaPagamento/${p.id}/visualizar">Visualizar</a> <a href="/folhaPagamento/${p.id}/excluir">Excluir</a></td>
 		      </tr>
 	      </c:forEach>
 	    </tbody>

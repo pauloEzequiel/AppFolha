@@ -3,14 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
 	<meta charset="ISO-8859-1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<title>AppFolha</title>
 </head>
 <body>
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container mt-3">
 	  <h3>Funcionarios Cadastrados: ${listagem.size()}</h3>
+	  <hr>
+	  <h4 style="text-align: right;"><a href="/funcionario/cadastro">Novo Funcionário</a></h4>
 
 	  <table class="table table-striped">
 	    <thead>
@@ -29,7 +32,7 @@
 		        <td>${p.ocupacao}</td>
 		        <td>${p.endereco}</td>
 		         <td>0</td>
-		        <td><a href="/funcionario/${p.id}/excluir">Visualizar</a> <a href="/funcionario/${p.id}/excluir">Excluir</a></td>
+		        <td><a href="/funcionario/${p.id}/visualizar">Visualizar</a> <a href="/funcionario/${p.id}/excluir">Excluir</a></td>
 		      </tr>
 	      </c:forEach>
 	    </tbody>

@@ -10,8 +10,9 @@
 <body>
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container mt-3">
-	  <h3>Benefícios</h3>
-
+	  <h3>Folha Benefícios</h3>
+      <hr>
+	  <h4 style="text-align: right;"><a href="/beneficio/cadastro">Nova Folha</a></h4>
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
